@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1eb3141730aeef48b9eb2bd5a769b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  Parrot: {fileID: 4786183318339663132, guid: 710a43ddd01df9a4f867b5ab9bd5cfb6, type: 3}
+  throwSpeed: {x: 10, y: 3}

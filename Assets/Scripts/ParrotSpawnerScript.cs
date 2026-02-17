@@ -21,8 +21,9 @@ public class ParrotSpawnerScript : MonoBehaviour
             Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             newPosition.z = 0;
 
-            GameObject newParrot =  Instantiate(Parrot, Input.mousePosition, Quaternion.identity);
+            GameObject newParrot =  Instantiate(Parrot, newPosition, Quaternion.identity);
             Rigidbody2D rb = newParrot.GetComponent<Rigidbody2D>();
+            rb.linearVelocity = throwSpeed;
         }
     }
 }
