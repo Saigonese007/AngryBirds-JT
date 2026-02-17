@@ -3,27 +3,56 @@ using UnityEngine;
 public class ParrotSpawnerScript : MonoBehaviour
 {
     public GameObject Parrot;
-    public Vector2 throwSpeed;
+    public float throwStrength = 1;
+    public float maxSpeed = 10;
 
+    bool isDragging = false;
+
+    SpriteRenderer colorChange;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Color newColor = new Color(0.3f, 0.4f, 0.6f);
+        colorChange = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
  
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0) && isDragging)
         {
-            Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            newPosition.z = 0;
+            isDragging = false;
 
-            GameObject newParrot =  Instantiate(Parrot, newPosition, Quaternion.identity);
+            Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            MousePos.z = 0;
+
+            Vector2 throwVelocity = (transform.position - MousePos) * throwStrength;
+            if (throwVelocity.magnitude > maxSpeed)
+            {
+                throwVelocity = throwVelocity.normalized * maxSpeed;
+            }
+
+            GameObject newParrot =  Instantiate(Parrot, transform.position, Quaternion.identity);
             Rigidbody2D rb = newParrot.GetComponent<Rigidbody2D>();
-            rb.linearVelocity = throwSpeed;
+            rb.linearVelocity = throwVelocity;
         }
+
+        if (isDragging)
+        {
+            colorChange.color = Color.softRed;
+        }
+        else
+        {
+            colorChange.color = Color.white;
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        isDragging = true;
     }
 }
