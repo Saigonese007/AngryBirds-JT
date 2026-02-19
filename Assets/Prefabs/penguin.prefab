@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4642828275589298501}
   - component: {fileID: 6403768321139041285}
   - component: {fileID: 3504376677441594053}
+  - component: {fileID: 6049318951676413390}
   m_Layer: 0
   m_Name: penguin
   m_TagString: Untagged
@@ -165,3 +166,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6049318951676413390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6320320780232781879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6fd86caf5155747b6910857477d3c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
