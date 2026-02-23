@@ -46,11 +46,12 @@ public class ParrotSpawnerScript : MonoBehaviour
 
             GameObject newParrot = Instantiate(shots[nextShot], transform.position, Quaternion.identity);
             nextShot++;
+            GameUI.SetShotsLeft(shots.Length - nextShot);
+
             Rigidbody2D rb = newParrot.GetComponent<Rigidbody2D>();
             rb.linearVelocity = throwVelocity;
 
-            GameUI.SetShotsLeft(shots.Length - nextShot);
-        }
+            }
 
         if (isDragging)
         {
