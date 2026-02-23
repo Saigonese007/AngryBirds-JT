@@ -7,7 +7,7 @@ public class GameUIScript : MonoBehaviour
     TextMeshProUGUI ShotsLeftTmp, EnemiesLeftTmp;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         ShotsLeftTmp = ShotsLeftText.GetComponent<TextMeshProUGUI>();
         EnemiesLeftTmp = EnemiesLeftText.GetComponent<TextMeshProUGUI>();
